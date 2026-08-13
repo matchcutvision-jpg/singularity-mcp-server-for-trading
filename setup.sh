@@ -24,7 +24,7 @@ cat > ~/.claude/.mcp.json << EOF
   "mcpServers": {
     "singularity": {
       "command": "node",
-      "args": ["${REPO_PATH}/src/server.js"],
+      "args": ["${REPO_PATH}/server.js"],
       "env": {
         "TV_DEBUG_PORT": "9222",
         "DEFAULT_SYMBOL": "NSE:NIFTY",
@@ -42,17 +42,13 @@ echo "╠═══════════════════════�
 echo "║                                                                              ║"
 echo "║  🚀 NEXT STEPS:                                                              ║"
 echo "║                                                                              ║"
-echo "║  1. Launch TradingView Desktop in debug mode:                                ║"
-echo "║     /Applications/TradingView.app/Contents/MacOS/TradingView \               ║"
-echo "║       --remote-debugging-port=9222                                           ║"
+echo "║  1. Start the MCP server:                                                    ║"
+echo "║     bash start.sh                                                            ║"
 echo "║                                                                              ║"
-echo "║  2. Start the MCP server:                                                    ║"
-echo "║     node src/server.js                                                       ║"
-echo "║                                                                              ║"
-echo "║  3. Open a new terminal and run:                                             ║"
+echo "║  2. Open a new terminal and run:                                             ║"
 echo "║     claude                                                                   ║"
 echo "║                                                                              ║"
-echo "║  4. In Claude, type:                                                         ║"
-echo "║     "Analyze Nifty 50"                                                     ║"
+echo "║  3. In Claude, type:                                                         ║"
+echo "║     Analyze Nifty 50                                                         ║"
 echo "║                                                                              ║"
 echo "╚══════════════════════════════════════════════════════════════════════════════╝"
