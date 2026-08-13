@@ -1,6 +1,6 @@
 # 🧠 Singularity MCP Server
 
-**10-Agent Trading Intelligence Framework** — A Model Context Protocol (MCP) server that connects Claude AI to TradingView Desktop for multi-angle market analysis.
+**10-Agent Trading Intelligence Framework** — A Model Context Protocol (MCP) server that connects Claude AI to live market data for multi-angle analysis.
 
 ## What It Does
 
@@ -12,7 +12,7 @@ Claude uses 10 specialized agents to scan the market and returns:
 - **Risk:Reward** ratio
 - **Full breakdown** from all 10 agents
 
-## Quick Start
+## Quick Start (Recommended)
 
 ```bash
 git clone https://github.com/matchcutvision-jpg/singularity-mcp-server-for-trading.git
@@ -21,17 +21,50 @@ bash setup.sh
 bash start.sh
 ```
 
-Then:
-1. Launch TradingView Desktop in debug mode
-2. Run `node src/server.js`
-3. Open `claude` and type `Analyze Nifty 50`
+Then open a **new terminal** and run:
+```bash
+claude
+```
+
+Inside Claude, type:
+```
+Analyze Nifty 50
+```
+
+---
+
+## Manual Setup
+
+If `setup.sh` does not work, configure manually:
+
+```bash
+git clone https://github.com/matchcutvision-jpg/singularity-mcp-server-for-trading.git
+cd singularity-mcp-server-for-trading
+npm install
+```
+
+Add the MCP server to Claude Code:
+```bash
+claude mcp add singularity node $(pwd)/server.js
+```
+
+Start the server:
+```bash
+bash start.sh
+```
+
+Then open a new terminal and run `claude`.
+
+---
 
 ## Requirements
 
 - macOS or Linux
 - Node.js 18+
-- TradingView Desktop (for chart control features)
 - Claude Code or Claude Desktop
+- Internet connection (fetches live data from Yahoo Finance)
+
+---
 
 ## The 10 Agents
 
@@ -48,6 +81,8 @@ Then:
 | 9 | Chart Patterns | Triangles, channels, double bottoms |
 | 10 | **Singularity Fusion** | **Weighted consensus vote** |
 
+---
+
 ## MCP Tools
 
 | Tool | Description |
@@ -62,58 +97,22 @@ Then:
 | `agent_fibonacci` | Agent 7 — Fib levels |
 | `agent_multitimeframe` | Agent 8 — Multi-TF |
 | `agent_chart_patterns` | Agent 9 — Pattern detection |
-| `tv_set_symbol` | Control TV — change symbol |
-| `tv_read_indicators` | Control TV — read values |
-| `tv_screenshot` | Control TV — capture chart |
-| `tv_add_indicator` | Control TV — add RSI/MACD etc |
 | `market_scan` | Scan multiple symbols, rank best |
+
+---
 
 ## Example Commands
 
 ```
+"Analyze Nifty 50"
 "Analyze RELIANCE on daily timeframe"
 "Run Agent 1 on TCS — what are the support levels?"
-"Switch TradingView to Bank Nifty 15m and add RSI"
 "Scan Nifty, Bank Nifty, RELIANCE, TCS, INFY — top 3 longs"
-"Screenshot my chart and tell me what pattern you see"
 ```
 
-## Manual Setup (Without setup.sh)
+---
 
-```bash
-git clone https://github.com/matchcutvision-jpg/singularity-mcp-server-for-trading.git
-cd singularity-mcp-server-for-trading
-npm install
-```
-
-Create `~/.claude/.mcp.json`:
-```json
-{
-  "mcpServers": {
-    "singularity": {
-      "command": "node",
-      "args": ["/full/path/to/repo/src/server.js"]
-    }
-  }
-}
-```
-
-Launch TradingView Desktop with debug port:
-```bash
-/Applications/TradingView.app/Contents/MacOS/TradingView --remote-debugging-port=9222
-```
-
-Start the server:
-```bash
-node src/server.js
-```
-
-Open Claude:
-```bash
-claude
-```
-
-## TradingView Pine Script
+## TradingView Pine Script (Separate Product)
 
 The file `pinescripts/Singularity_10_Agents.pine` is a visual indicator for TradingView:
 - Draws S/R lines, Volume Profile POC, Fibonacci levels
@@ -122,16 +121,15 @@ The file `pinescripts/Singularity_10_Agents.pine` is a visual indicator for Trad
 - Displays info table with verdict, confidence, entry/stop/target
 - Built-in alerts for LONG/SHORT signals
 
-To use: Open TradingView → Pine Editor → Paste → Add to Chart
+To use: Open TradingView → Pine Editor → Paste `Singularity_10_Agents.pine` → Add to Chart
 
-## Monetization
+---
 
-| Model | Revenue |
-|-------|---------|
-| Telegram signals | ₹999–2,999/mo |
-| Pine Script indicator | ₹4,999 lifetime |
-| White-label to influencers | 30% rev share |
-| SEBI Research Analyst | ₹5,000–25,000/mo |
+## Data Source
+
+This server fetches market data from **Yahoo Finance** via direct HTTP calls. No API key required. No TradingView subscription required for analysis.
+
+---
 
 ## License
 
