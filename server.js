@@ -8,7 +8,7 @@ import { Server } from "@modelcontextprotocol/sdk/server/index.js";
 import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
 import { CallToolRequestSchema, ListToolsRequestSchema } from "@modelcontextprotocol/sdk/types.js";
 import TradingViewClient from "./tradingview-client.js";
-import { runAllAgents, runAgent } from "./agents/index.js";
+import { runAllAgents, runAgent } from "./index.js";
 
 const CONFIG = {
   tvPort: process.env.TV_DEBUG_PORT || 9222,
