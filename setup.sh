@@ -15,25 +15,9 @@ npm install
 # 2. Get absolute path to this repo
 REPO_PATH="$(cd "$(dirname "$0")" && pwd)"
 
-# 3. Create Claude MCP config
+# 3. Add MCP server to Claude Code
 echo "🔧 Configuring Claude MCP..."
-mkdir -p ~/.claude
-
-cat > ~/.claude/.mcp.json << EOF
-{
-  "mcpServers": {
-    "singularity": {
-      "command": "node",
-      "args": ["${REPO_PATH}/server.js"],
-      "env": {
-        "TV_DEBUG_PORT": "9222",
-        "DEFAULT_SYMBOL": "NSE:NIFTY",
-        "DEFAULT_TIMEFRAME": "1D"
-      }
-    }
-  }
-}
-EOF
+claude mcp add singularity node "${REPO_PATH}/server.js"
 
 echo ""
 echo "╔══════════════════════════════════════════════════════════════════════════════╗"
@@ -48,7 +32,7 @@ echo "║                                                                       
 echo "║  2. Open a new terminal and run:                                             ║"
 echo "║     claude                                                                   ║"
 echo "║                                                                              ║"
-echo "║  3. In Claude, type:                                                         ║"
+echo "║  3. In Claude, type:                                                       ║"
 echo "║     Analyze Nifty 50                                                         ║"
 echo "║                                                                              ║"
 echo "╚══════════════════════════════════════════════════════════════════════════════╝"
