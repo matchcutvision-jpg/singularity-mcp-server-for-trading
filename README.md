@@ -67,6 +67,7 @@ claude
 git clone https://github.com/matchcutvision-jpg/singularity-mcp-server-for-trading.git
 cd singularity-mcp-server-for-trading
 bash setup.sh
+```
 
 Then type: `Analyze Nifty 50 using singularity_analyze`
 
