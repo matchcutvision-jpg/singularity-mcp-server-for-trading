@@ -1,0 +1,20 @@
+{
+  "name": "singularity-mcp-server",
+  "version": "1.0.0",
+  "description": "10-Agent Trading Singularity — MCP Server for Claude AI + TradingView Desktop",
+  "main": "src/server.js",
+  "type": "module",
+  "scripts": {
+    "start": "node src/server.js",
+    "test": "node src/test.js",
+    "setup": "node src/setup.js"
+  },
+  "keywords": ["mcp", "tradingview", "trading", "ai", "claude", "singularity"],
+  "author": "Singularity Trading Systems",
+  "license": "MIT",
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.0.0",
+    "chrome-remote-interface": "^0.33.0"
+  },
+  "engines": { "node": ">=18.0.0" }
+}

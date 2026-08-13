@@ -1,0 +1,13 @@
+{
+  "mcpServers": {
+    "singularity": {
+      "command": "node",
+      "args": ["REPO_PATH/src/server.js"],
+      "env": {
+        "TV_DEBUG_PORT": "9222",
+        "DEFAULT_SYMBOL": "NSE:NIFTY",
+        "DEFAULT_TIMEFRAME": "1D"
+      }
+    }
+  }
+}
