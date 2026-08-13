@@ -18,6 +18,7 @@ Claude uses 10 specialized agents to scan the market and returns:
 git clone https://github.com/matchcutvision-jpg/singularity-mcp-server-for-trading.git
 cd singularity-mcp-server-for-trading
 bash setup.sh
+bash start.sh
 ```
 
 Then:
